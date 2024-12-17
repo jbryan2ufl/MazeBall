@@ -1,0 +1,15 @@
+A reminder for how to create a new project:
+	git init
+	git branch -M main
+	git remote add origin git@github.com:jbryan2ufl/<PROJECTNAME>.git
+	git remote add template git@github.com:jbryan2ufl/3D-Graphics-Template.git
+	git fetch template
+	git merge template/main --allow-unrelated-histories
+	git add .
+	git commit -m "first commit"
+	git push -u origin main
+
+A reminder for how to update this project:
+	git fetch template
+	git merge template/main --allow-unrelated-histories
+	git push origin main
