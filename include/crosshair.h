@@ -13,7 +13,7 @@ public:
 
 	float m_length{5.0f};
 
-	glm::vec4 m_color{1.0f, 1.0f, 0.0f, 0.5f};
+	glm::vec4 m_color{1.0f, 1.0f, 1.0f, 0.5f};
 
 	void init(std::shared_ptr<WindowData> w) override;
 	void renderSpecifics() override;

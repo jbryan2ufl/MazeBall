@@ -6,7 +6,6 @@ cmake_minimum_required(VERSION 3.11)
 
 project(main)
 
-
 # Include GLFW using FetchContent
 include(FetchContent)
 FetchContent_Declare(
@@ -60,8 +59,6 @@ endif()
 
 file(GLOB SOURCES "src/*.cpp")
 file(GLOB IMGUI "${imgui_SOURCE_DIR}/*.cpp")
-
-include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # Add executable
 add_executable(main
