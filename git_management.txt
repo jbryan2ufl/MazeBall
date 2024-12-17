@@ -8,6 +8,7 @@ A reminder for how to create a new project:
 	git add .
 	git commit -m "first commit"
 	git push -u origin main
+	mkdir build
 
 A reminder for how to update this project:
 	git fetch template
