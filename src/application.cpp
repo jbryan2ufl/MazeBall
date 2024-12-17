@@ -1,6 +1,6 @@
 #define STB_TRUETYPE_IMPLEMENTATION
 
-#include "application.h"
+#include "../include/application.h"
 
 void Application::run()
 {
@@ -213,16 +213,16 @@ void Application::init()
 	m_windowData->m_perspective = glm::perspective(glm::radians(m_camera.m_fov), m_windowData->m_aspectRatio, m_camera.m_nearPlane, m_camera.m_farPlane);
 	m_windowData->m_orthographic = glm::ortho(0.0f, static_cast<float>(m_windowData->m_viewSize.x), static_cast<float>(m_windowData->m_viewSize.y), 0.0f, m_camera.m_nearPlane, m_camera.m_farPlane);
 
-	// m_gridShader = Shader("../src/shaders/grid.vs", "../src/shaders/source.fs");
+	// m_gridShader = Shader("../shaders/grid.vs", "../shaders/source.fs");
 	// m_grid.init();
 	// m_grid.populate();
 
 	{
-		auto shader{m_shaderManager.loadNewShader("Text", "../src/shaders/text.vs", "../src/shaders/text.fs")};
+		auto shader{m_shaderManager.loadNewShader("Text", "../shaders/text.vs", "../shaders/text.fs")};
 		m_fpsText.setShader(shader);
 		m_worldText.setShader(shader);
 		
-		shader = m_shaderManager.loadNewShader("Object", "../src/shaders/object.vs", "../src/shaders/object.fs");
+		shader = m_shaderManager.loadNewShader("Object", "../shaders/object.vs", "../shaders/object.fs");
 		m_obj.setShader(shader);
 		m_crosshair.setShader(shader);
 	}

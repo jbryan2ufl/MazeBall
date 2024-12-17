@@ -4,10 +4,6 @@ cmake_minimum_required(VERSION 3.11)
 # set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # set(CMAKE_CXX_EXTENSIONS OFF)
 
-# if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
-# endif()
-
 project(main)
 
 
@@ -64,6 +60,8 @@ endif()
 
 file(GLOB SOURCES "src/*.cpp")
 file(GLOB IMGUI "${imgui_SOURCE_DIR}/*.cpp")
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # Add executable
 add_executable(main

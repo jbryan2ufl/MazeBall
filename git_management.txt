@@ -11,5 +11,9 @@ A reminder for how to create a new project:
 
 A reminder for how to update this project:
 	git fetch template
-	git merge template/main --allow-unrelated-histories
+	git merge template/main
 	git push origin main
+
+How to use cmake:
+	cd build
+	cmake .. -G "Unix Makefiles" && make && main
