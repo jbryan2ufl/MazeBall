@@ -1,4 +1,4 @@
-#include "exampleObject.h"
+#include "../include/exampleObject.h"
 
 ExampleObject::ExampleObject()
 {

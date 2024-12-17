@@ -1,4 +1,4 @@
-#include "shaderManager.h"
+#include "../include/shaderManager.h"
 
 std::shared_ptr<Shader> ShaderManager::loadNewShader(const std::string& s, const char* vs, const char* fs)
 {

@@ -1,4 +1,4 @@
-#include "textmanager.h"
+#include "../include/textmanager.h"
 
 TextManager::TextManager()
 	: Renderable{}

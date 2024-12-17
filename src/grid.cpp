@@ -1,4 +1,4 @@
-#include "grid.h"
+#include "../include/grid.h"
 
 Grid::Grid(unsigned int width, unsigned int height, unsigned int xCount, unsigned int yCount)
 	: m_width{width}

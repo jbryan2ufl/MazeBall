@@ -1,4 +1,4 @@
-#include "interactive.h"
+#include "../include/interactive.h"
 
 Interactive::Interactive()
 {

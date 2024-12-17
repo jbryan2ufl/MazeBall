@@ -1,4 +1,4 @@
-#include "crosshair.h"
+#include "../include/crosshair.h"
 
 Crosshair::Crosshair()
 {
