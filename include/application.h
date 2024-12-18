@@ -36,6 +36,9 @@
 #include "windowData.h"
 #include "shaderManager.h"
 #include "crosshair.h"
+#include "icosahedron.h"
+#include "mazeball.h"
+#include "roomba.h"
 
 // experimental optional windows no border/transparent
 // #ifdef _WIN32
@@ -80,6 +83,10 @@ public:
 	TextManager m_fpsText{};
 	TextManager m_worldText{};
 	ExampleObject m_obj{};
+	// Icosahedron m_soccerBall{};
+	Roomba m_roomba{};
+	
+	MazeBall m_ball{};
 	Crosshair m_crosshair{};
 
 	bool firstMouse{true};

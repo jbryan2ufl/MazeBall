@@ -47,13 +47,18 @@ void Application::draw()
 
 	
 	// OBJECT RENDERING
-	m_obj.render();
-	m_crosshair.render();
+	// m_obj.render();
+	m_roomba.render();
+	// m_soccerBall.render();
+	// m_soccerBall.updateGeometry();
+	// m_ball.updateGeometry();
+	m_ball.render();
+	// m_crosshair.render();
 
-	m_collision = m_worldText.checkIntersection(m_camera.m_ray);
+	// m_collision = m_worldText.checkIntersection(m_camera.m_ray);
 
 	// TEXT RENDERING
-	m_worldText.render();
+	// m_worldText.render();
 
 	m_fpsText.generateText(frameTimeString+fpsString+mousePosString);
 	m_fpsText.render();
@@ -87,6 +92,10 @@ void Application::draw()
 		if (ImGui::DragFloat("Text Scale", &m_worldText.m_modelMatrix.m_scaleFactor, 1.0f/360))
 		{
 			m_worldText.m_modelMatrix.updateAll();
+		}
+		if (ImGui::Button("Move"))
+		{
+			m_roomba.nextEdge();
 		}
 
 		
@@ -168,6 +177,7 @@ void Application::init()
 	glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
 	glEnable(GL_DEPTH_TEST);
+	glDepthMask(GL_TRUE);
 	glfwSwapInterval(vsync);
 
 	// glEnable(GL_CULL_FACE);
@@ -178,7 +188,7 @@ void Application::init()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	glEnable(GL_DEPTH_CLAMP);
+	// glEnable(GL_DEPTH_CLAMP);
 
 	GLenum error = glGetError();
 	if (error != GL_NO_ERROR) {
@@ -224,6 +234,9 @@ void Application::init()
 		
 		shader = m_shaderManager.loadNewShader("Object", "../shaders/object.vs", "../shaders/object.fs");
 		m_obj.setShader(shader);
+		m_roomba.setShader(shader);
+		// m_soccerBall.setShader(shader);
+		m_ball.setShader(shader);
 		m_crosshair.setShader(shader);
 	}
 
@@ -236,8 +249,14 @@ void Application::init()
 	m_worldText.init(m_windowData);
 	m_worldText.generateText("HELLO!");
 
+	m_roomba.setAdjacency(m_ball.getAdjacency());
 	m_obj.init(m_windowData);
+	m_ball.init(m_windowData);
+	m_roomba.init(m_windowData);
+	// m_soccerBall.init(m_windowData);
 	m_crosshair.init(m_windowData);
+
+
 }
 
 
