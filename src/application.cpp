@@ -53,6 +53,7 @@ void Application::draw()
 	// m_soccerBall.updateGeometry();
 	// m_ball.updateGeometry();
 	m_ball.render();
+	m_ball.m_walls.render();
 	// m_crosshair.render();
 
 	// m_collision = m_worldText.checkIntersection(m_camera.m_ray);
@@ -232,12 +233,15 @@ void Application::init()
 		m_fpsText.setShader(shader);
 		m_worldText.setShader(shader);
 		
-		shader = m_shaderManager.loadNewShader("Object", "../shaders/object.vs", "../shaders/object.fs");
+		shader = m_shaderManager.loadNewShader("ObjectVertexColor", "../shaders/objectVertexColor.vs", "../shaders/objectVertexColor.fs");
 		m_obj.setShader(shader);
 		m_roomba.setShader(shader);
 		// m_soccerBall.setShader(shader);
 		m_ball.setShader(shader);
 		m_crosshair.setShader(shader);
+
+		shader = m_shaderManager.loadNewShader("ObjectVertex", "../shaders/objectVertex.vs", "../shaders/objectVertex.fs");
+		m_ball.m_walls.setShader(shader);
 	}
 
 	m_fpsText.initFont("../fonts/slkscr.ttf", 32.0f);
@@ -252,6 +256,7 @@ void Application::init()
 	m_roomba.setAdjacency(m_ball.getAdjacency());
 	m_obj.init(m_windowData);
 	m_ball.init(m_windowData);
+	m_ball.m_walls.init(m_windowData);
 	m_roomba.init(m_windowData);
 	// m_soccerBall.init(m_windowData);
 	m_crosshair.init(m_windowData);

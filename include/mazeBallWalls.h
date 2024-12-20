@@ -1,5 +1,5 @@
-#ifndef ICOSAHEDRON_H
-#define ICOSAHEDRON_H
+#ifndef MAZEBALLWALLS_H
+#define MAZEBALLWALLS_H
 
 #include "renderable.h"
 
@@ -11,11 +11,14 @@
 #include <iostream>
 #include <limits>
 #include <memory>
-#include <math.h>
 
 #include "shader.h"
 #include "windowData.h"
 #include "modelMatrix.h"
+#include "mazeball.h"
+
+class MazeBall;
+
 
 /*
 for setup, call:
@@ -29,24 +32,24 @@ to draw, call:
 	- render()
 */
 
-class Icosahedron : public Renderable
+class MazeBallWalls : public Renderable
 {
 public:
-	Icosahedron();
-
-	void updateGeometry();
+	MazeBallWalls(const MazeBall& mazeball);
 
 	std::vector<glm::vec3> m_data{};
-	std::vector<glm::vec4> m_color_data{};
 
 	void init(std::shared_ptr<WindowData> w) override;
 	void renderSpecifics() override;
 	void setUniforms() override;
 	void populateVAO() override;
 	void initGeometry() override;
+
 private:
-	float m_radius{1.0f};
-	uint8_t m_SubdivisionLevel{3};
+	float m_wallHeight{};
+	float m_wallDepth{};
+	float m_wallThickness{};
+	const MazeBall& m_mb;
 };
 
 #endif

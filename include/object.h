@@ -10,12 +10,13 @@ class Object
 {
 public:
 	Object()
+		: m_modelMatrix{std::make_shared<ModelMatrix>()}
 	{}
 
 	virtual ~Object() = default;
 
 protected:
-	ModelMatrix m_modelMatrix{};
+	std::shared_ptr<ModelMatrix> m_modelMatrix{};
 	std::shared_ptr<WindowData> m_windowData{nullptr};
 };
 

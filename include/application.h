@@ -36,7 +36,6 @@
 #include "windowData.h"
 #include "shaderManager.h"
 #include "crosshair.h"
-#include "icosahedron.h"
 #include "mazeball.h"
 #include "roomba.h"
 

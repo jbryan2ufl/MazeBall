@@ -56,6 +56,6 @@ void ExampleObject::renderSpecifics()
 
 void ExampleObject::setUniforms()
 {
-	glm::mat4 mvpMatrix {m_windowData->m_perspective * m_windowData->m_view * m_modelMatrix.m_matrix};
+	glm::mat4 mvpMatrix {m_windowData->m_perspective * m_windowData->m_view * m_modelMatrix->m_matrix};
 	m_shader->setMat4("mvpMatrix", mvpMatrix);
 }

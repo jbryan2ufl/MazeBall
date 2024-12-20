@@ -12,7 +12,7 @@ public:
 
 	Roomba();
 
-	void setAdjacency(std::shared_ptr<Adjacency> a) { m_adjacency = a; }
+	void setAdjacency(std::shared_ptr<AdjacencyMap> a) { m_adjacency = a; }
 
 	void nextEdge();
 	void updateGeometry();
@@ -27,7 +27,7 @@ public:
 	void initGeometry() override;
 
 private:
-	std::shared_ptr<Adjacency> m_adjacency;
+	std::shared_ptr<AdjacencyMap> m_adjacency;
 	Edge* m_currentEdge{};
 };
 
